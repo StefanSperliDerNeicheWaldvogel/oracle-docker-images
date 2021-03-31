@@ -28,7 +28,7 @@
          <initParam name="audit_file_dest" value="{ORACLE_BASE}/admin/{DB_UNIQUE_NAME}/adump"/>
          <initParam name="compatible" value="12.1.0.2.0"/>
          <initParam name="remote_login_passwordfile" value="EXCLUSIVE"/>
-         <initParam name="processes" value="300"/>
+         <initParam name="processes" value="1000"/>
          <initParam name="undo_tablespace" value="UNDOTBS1"/>
          <initParam name="control_files" value="(&quot;{ORACLE_BASE}/oradata/{DB_UNIQUE_NAME}/control01.ctl&quot;, &quot;{ORACLE_BASE}/fast_recovery_area/{DB_UNIQUE_NAME}/control02.ctl&quot;)"/>
          <initParam name="diagnostic_dest" value="{ORACLE_BASE}"/>
