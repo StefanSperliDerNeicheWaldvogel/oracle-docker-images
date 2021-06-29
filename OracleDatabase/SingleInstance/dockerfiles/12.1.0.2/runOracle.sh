@@ -143,7 +143,7 @@ export ORACLE_PDB=${ORACLE_PDB^^}
 # Default for ORACLE CHARACTERSET
 export ORACLE_CHARACTERSET=${ORACLE_CHARACTERSET:-AL32UTF8}
 
-# Check whether database already exists
+# Check whether database already exists if not create it and import the good stuff
 if [ -d $ORACLE_BASE/oradata/$ORACLE_SID ]; then
    symLinkFiles;
    
@@ -171,7 +171,10 @@ else
    
   # Execute custom provided setup scripts
   $ORACLE_BASE/$USER_SCRIPTS_FILE $ORACLE_BASE/scripts/setup
+  
 fi;
+
+
 
 # Check whether database is up and running
 $ORACLE_BASE/$CHECK_DB_FILE

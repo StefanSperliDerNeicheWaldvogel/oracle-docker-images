@@ -35,7 +35,7 @@
          <initParam name="db_recovery_file_dest" value="{ORACLE_BASE}/fast_recovery_area"/>
          <initParam name="audit_trail" value="db"/>
          <initParam name="db_recovery_file_dest_size" value="" unit="MB"/>
-		 <initParam name="nls_territory" value="GERMANY"/>
+		   <initParam name="nls_territory" value="GERMANY"/>
          <initParam name="nls_language" value="GERMAN"/>
          <initParam name="log_archive_dest_1" value="'LOCATION=/log/{DB_NAME}'"/>
          <initParam name="session_max_open_files" value="1000"/>
@@ -52,10 +52,10 @@
          <initParam name="archive_lag_target" value="900"/>
          <initParam name="optimizer_index_caching" value="90"/>
          <initParam name="optimizer_index_cost_adj" value="30"/>
-		 <initParam name="sort_area_size" value="1024000"/>
-		 <initParam name="sort_area_retained_size" value="1024000"/>
+		   <initParam name="sort_area_size" value="1024000"/>
+		   <initParam name="sort_area_retained_size" value="1024000"/>
          <initParam name="db_block_size" value="8" unit="KB"/>
-		 <initParam name="recyclebin" value="OFF"/>
+		   <initParam name="recyclebin" value="OFF"/>
          <initParam name="pga_aggregate_limit" value="4" unit="GB"/>
          <initParam name="pga_aggregate_target" value="2" unit="GB"/>
          <initParam name="lock_sga" value="FALSE"/>

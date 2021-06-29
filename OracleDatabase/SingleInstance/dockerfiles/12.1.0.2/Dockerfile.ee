@@ -39,8 +39,6 @@ LABEL "provider"="Oracle"                                               \
 # -------------------------------------------------------------
 ENV ORACLE_BASE=/opt/oracle \
     ORACLE_HOME=/opt/oracle/product/12.1.0.2/dbhome_1 \
-    DBCA_TEMPLATE_DIR=/opt/oracle/product/12.1.0.2/dbhome_1/assistants/dbca/templates \
-    DBCA_TEMPLATE_NAME=cust.dbc \
     INSTALL_DIR=/opt/install \
     INSTALL_FILE_1="linuxamd64_12102_database_1of2.zip" \
     INSTALL_FILE_2="linuxamd64_12102_database_2of2.zip" \
@@ -57,6 +55,7 @@ ENV ORACLE_BASE=/opt/oracle \
     USER_SCRIPTS_FILE="runUserScripts.sh" \
     INSTALL_DB_BINARIES_FILE="installDBBinaries.sh"
 
+
 # Use second ENV so that variable get substituted
 ENV PATH=$ORACLE_HOME/bin:$ORACLE_HOME/OPatch/:/usr/sbin:$PATH \
     LD_LIBRARY_PATH=$ORACLE_HOME/lib:/usr/lib \
@@ -65,15 +64,13 @@ ENV PATH=$ORACLE_HOME/bin:$ORACLE_HOME/OPatch/:/usr/sbin:$PATH \
 # Copy files needed during both installation and runtime
 # -------------
 COPY $SETUP_LINUX_FILE $CHECK_SPACE_FILE $INSTALL_DIR/
-COPY $RUN_FILE $START_FILE $CREATE_DB_FILE $CONFIG_RSP $PWD_FILE $CHECK_DB_FILE $USER_SCRIPTS_FILE $ORACLE_BASE/
+COPY $RUN_FILE $START_FILE $CREATE_DB_FILE $CONFIG_RSP $PWD_FILE $CHECK_DB_FILE $USER_SCRIPTS_FILE test_2021_05_17.dbt $ORACLE_BASE/
 
 RUN chmod ug+x $INSTALL_DIR/*.sh && \
     sync && \
     $INSTALL_DIR/$CHECK_SPACE_FILE && \
     $INSTALL_DIR/$SETUP_LINUX_FILE && \
     rm -rf $INSTALL_DIR
-
-
 
 #############################################
 # -------------------------------------------
@@ -96,8 +93,6 @@ USER oracle
 RUN chmod ug+x $INSTALL_DIR/*.sh && \
     sync && \
     $INSTALL_DIR/$INSTALL_DB_BINARIES_FILE EE
-
-
 
 #############################################
 # -------------------------------------------
@@ -123,6 +118,26 @@ HEALTHCHECK --interval=1m --start-period=5m \
 # Define default command to start Oracle Database. 
 CMD exec $ORACLE_BASE/$RUN_FILE
 
+#############################################
+# -------------------------------------------
+# Install Java JDK 
+# -------------------------------------------
+#############################################
+
+USER root 
+RUN yum -y update
+RUN yum -y install java-1.8.0-openjdk-devel
+RUN yum -y install wget
+RUN yum -y install perl
+
+ADD SysAdmin /opt/SysAdmin/
+
+ADD saData_localhost_test_CW_cronet_docker.xml /opt/SysAdmin/config/
+
+ADD test_2021_05_17.dbt $ORACLE_HOME/assistants/dbca/templates/
 
 USER oracle
 COPY --chown=oracle:dba $DBCA_TEMPLATE_NAME $DBCA_TEMPLATE_DIR/
+
+
+
