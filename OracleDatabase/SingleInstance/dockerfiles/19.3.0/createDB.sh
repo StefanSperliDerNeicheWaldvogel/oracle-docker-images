@@ -27,8 +27,8 @@ if [[ "${INIT_SGA_SIZE}" != "" && "${INIT_PGA_SIZE}" == "" ]] || [[ "${INIT_SGA_
    exit 1;
 fi;
 
-# Auto generate ORACLE PWD if not passed on
-export ORACLE_PWD=${3:-"`openssl rand -base64 8`1"}
+# Use oracle as ORACLE PWD 
+export ORACLE_PWD="oracle"
 echo "ORACLE PASSWORD FOR SYS, SYSTEM AND PDBADMIN: $ORACLE_PWD";
 
 # Replace place holders in response file
@@ -88,6 +88,8 @@ echo "$ORACLE_PDB=
 
 # Remove second control file, fix local_listener, make PDB auto open, enable EM global port
 # Create externally mapped oracle user for health check
+# Bunch of other stuff for EntwicklerDB an shit
+# 
 sqlplus / as sysdba << EOF
    ALTER SYSTEM SET control_files='$ORACLE_BASE/oradata/$ORACLE_SID/control01.ctl' scope=spfile;
    ALTER SYSTEM SET local_listener='';
@@ -100,6 +102,21 @@ sqlplus / as sysdba << EOF
    GRANT SELECT ON sys.v_\$pdbs TO OPS\$oracle;
    ALTER USER OPS\$oracle SET container_data=all for sys.v_\$pdbs container = current;
 
+   ALTER SESSION SET CONTAINER=$ORACLE_PDB;
+   CREATE DIRECTORY SHARE_DIRECTORY AS '/share';
+   CREATE TEMPORARY TABLESPACE CRONET_TEMP TEMPFILE 'cronet_temp.dbf' SIZE 5M AUTOEXTEND ON;
+   ALTER USER SYSTEM ACCOUNT UNLOCK;
+   @/opt/oracle/product/12.1.0.2/dbhome_1/demo/schema/db-sample-schemas-12.1.0.2/human_resources/hr_main.sql cronet system temp cronet /oracle/hr/log localhost:1521/impl
+   exit;
+EOF
+
+java -jar /opt/SysAdmin/bin/cwSysadmin.jar -dpi XMLFILE=/opt/SysAdmin/config/saData_localhost_test_CW_cronet_docker.xml  impfile=CRONET_TRUNK.DMP impdir=SHARE_DIRECTORY FROMUSER=CRONET_TRUNK TOUSER=CRONET  CRONETGRANTS=false passwordtransfer=false createstatistics=false userdelete=true
+
+java -jar /opt/SysAdmin/bin/cwSysadmin.jar -dpi XMLFILE=/opt/SysAdmin/config/saData_localhost_test_CW_cronet_docker.xml  impfile=UTPLSQL.DMP      impdir=SHARE_DIRECTORY FROMUSER=UTPLSQL TOUSER=UTPLSQL CRONETGRANTS=false passwordtransfer=false createstatistics=false userdelete=true
+
+sqlplus / as sysdba << EOF
+   ALTER SESSION SET CONTAINER=$ORACLE_PDB;
+   ALTER USER CRONET identified by cronet;
    exit;
 EOF
 

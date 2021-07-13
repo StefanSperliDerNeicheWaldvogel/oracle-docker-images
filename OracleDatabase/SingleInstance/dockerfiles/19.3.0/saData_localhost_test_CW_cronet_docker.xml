@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<saData xmlns="http://www.industrieinformatik.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.1.6" xsi:schemaLocation="http://www.industrieinformatik.com saData.xsd">
+  <common>
+    <customer customerId="FLS-WS" expireDate="99.99.9999" licenceCode="45C6A9128EB6EB14A11D1F52E81FB8BC" licenceName="FLS-WS"/>
+  </common>
+  <download>
+    <destination path="/temp"/>
+    <edition>Forms 12</edition>
+    <editionSetByCustomer>false</editionSetByCustomer>
+  </download>
+  <config>
+    <component id="Forms" relatedLineStatus="true" status="ERROR">
+      <checkResult>DB Flag: The service is not running!
+URL not reachable.
+URL: http://localhost:80/forms/frmservlet/</checkResult>
+      <properties>
+        <property name="clientDPI" type="java.lang.Integer">96</property>
+        <property name="networkRetries" type="java.lang.Integer">90</property>
+        <property name="appletHeight" type="java.lang.Integer">768</property>
+        <property name="appletWidth" type="java.lang.Integer">1024</property>
+        <property name="seperateFrame" type="java.lang.Boolean">true</property>
+      </properties>
+    </component>
+    <component id="OPC" relatedLineStatus="true" status="ERROR">
+      <checkResult>Please enter a valid hostname or ip, 'insert ip address for an opc server' is not valid!</checkResult>
+      <properties>
+        <property name="hostname" type="java.lang.String">insert ip address for an opc server</property>
+      </properties>
+    </component>
+    <component id="SAP" relatedLineStatus="true" status="ERROR">
+      <checkResult>Please enter a valid hostname or ip, 'insert a hostname or ip address for a sap system' is not valid!</checkResult>
+      <properties>
+        <property name="hostname" type="java.lang.String">insert a hostname or ip address for a sap system</property>
+        <property name="system number" type="java.lang.String">00</property>
+      </properties>
+    </component>
+    <component id="LDAP" relatedLineStatus="true" status="ERROR">
+      <checkResult>DB Flag: The information is not available!</checkResult>
+      <properties>
+        <property name="LDAP_WalletPwd" type="java.lang.String"/>
+        <property name="LDAP_Backup_Host" type="java.lang.String"/>
+        <property name="LDAP_Wallet" type="java.lang.String"/>
+        <property name="LDAP_Host" type="java.lang.String"/>
+        <property name="LDAP_SSL_Aktiv" type="java.lang.Boolean">false</property>
+      </properties>
+    </component>
+    <component id="SQLListener" relatedLineStatus="true" status="OK">
+      <checkResult>Connection ok (port 1521, time = 1 ms).
+Host Address = 127.0.0.1
+Host Name    = localhost</checkResult>
+      <properties>
+        <property name="port" type="java.lang.Integer">1521</property>
+      </properties>
+    </component>
+    <component id="IasForms" relatedLineStatus="false" status="ERROR" version="">
+      <checkResult>The local directory D:/oracle/frm/frmrep is not available. Please check the name you set in your property window.
+TNSping failed: Command not found!</checkResult>
+      <properties>
+        <property name="domain_name" type="java.lang.String">cronetwork</property>
+        <property name="instance_name" type="java.lang.String">cw_frmrep</property>
+        <property name="admin_port" type="java.lang.Integer">7001</property>
+        <property name="nls_lang" type="java.lang.String">GERMAN_GERMANY.AL32UTF8</property>
+        <property editor="Directory" name="middleware_home" type="java.io.File">D:\oracle\frm</property>
+        <property name="install_type_cronetwork" type="java.lang.Boolean">true</property>
+        <property editor="Directory" name="oracle_home" type="java.io.File">D:\oracle\frm\frmrep</property>
+        <property editor="Directory" name="domain_home" type="java.io.File">D:\oracle\frm\user_projects\domains\cronetwork</property>
+        <property editor="Directory" name="cw_middleware_home" type="java.io.File">D:\cwas</property>
+        <property editor="Directory" name="instance_home" type="java.io.File">D:\oracle\frm\cw_frmrep</property>
+        <property name="oracle_home_name" type="java.lang.String">frmrep</property>
+      </properties>
+    </component>
+    <component id="JVX" relatedLineStatus="true" status="ERROR">
+      <checkResult>DB Flag: The service is not running!</checkResult>
+      <properties>
+        <property name="application_name" type="java.lang.String">CronetJVX</property>
+      </properties>
+    </component>
+    <component id="MDE" relatedLineStatus="true" status="ERROR">
+      <checkResult>Error: connect timed out
+port is not available.
+The local directory mde is not available. Please check the name you set in your property window.</checkResult>
+      <properties>
+        <property editor="Directory" name="cwMDEhome" type="java.io.File">mde</property>
+        <property name="port" type="java.lang.Integer">1201</property>
+      </properties>
+    </component>
+    <component id="FPLAN" relatedLineStatus="true" status="ERROR">
+      <checkResult>Error: connect timed out
+port is not available.
+The local directory fplan is not available. Please check the name you set in your property window.
+DB Flag: The service is not running!</checkResult>
+      <properties>
+        <property editor="Directory" name="cwFPLANhome" type="java.io.File">fplan</property>
+        <property name="port" type="java.lang.Integer">8090</property>
+        <property name="ssl_port" type="java.lang.Integer">10443</property>
+        <property name="path_fplan" type="java.lang.String">FPlanWeb</property>
+      </properties>
+    </component>
+    <component id="LDAP_MAServices" relatedLineStatus="true" status="ACTIVE">
+      <checkResult/>
+      <properties/>
+    </component>
+    <component id="ADAM" relatedLineStatus="true" status="ERROR">
+      <checkResult>Please enter a valid hostname or ip, 'insert ip adress for an adam module' is not valid!</checkResult>
+      <properties>
+        <property name="hostname" type="java.lang.String">insert ip adress for an adam module</property>
+      </properties>
+    </component>
+    <component id="Cronet" relatedLineStatus="true" status="ERROR" version="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;CRONET&lt;/p&gt;&lt;/html&gt;">
+      <checkResult>java.sql.SQLException: ORA-01017: Benutzername/Kennwort ungültig; Anmeldung abgelehnt
+
+No connection possible
+with CW_SCHEMA</checkResult>
+      <properties/>
+    </component>
+    <component id="SSLDB" relatedLineStatus="true" status="INACTIVE">
+      <checkResult/>
+      <properties>
+        <property name="WalletPwd" type="java.lang.String"/>
+        <property name="Wallet" type="java.lang.String"/>
+      </properties>
+    </component>
+    <component id="client" relatedLineStatus="true" status="ACTIVE">
+      <checkResult/>
+      <properties>
+        <property name="terraformer_prelink" type="java.lang.String"/>
+      </properties>
+    </component>
+    <component id="userschema" relatedLineStatus="true" status="ACTIVE">
+      <checkResult/>
+      <properties/>
+    </component>
+    <component id="SAPConnector" relatedLineStatus="false" status="ERROR">
+      <checkResult>The local directory sst/sap is not available. Please check the name you set in your property window.
+TNSping failed: Command not found!
+The local directory c:/oracle/frm is not available. Please check the name you set in your property window.</checkResult>
+      <properties>
+        <property editor="Directory" name="cwSAPhome" type="java.io.File">sst\sap</property>
+        <property editor="Directory" name="oracle_home" type="java.io.File">c:\oracle\frm</property>
+      </properties>
+    </component>
+    <component id="database server" relatedLineStatus="true" status="OK" version="&lt;html&gt;localhost&lt;br&gt;&lt;/html&gt;">
+      <checkResult>Ping was successful.
+No DNS entry available (nslookup failed).
+The local directory C:/oracle/oracle12c is available</checkResult>
+      <properties>
+        <property name="hostname" type="java.lang.String">localhost</property>
+        <property editor="Directory" name="oracle_home" type="java.io.File">C:\oracle\oracle12c</property>
+      </properties>
+    </component>
+    <component id="DAD" relatedLineStatus="true" status="ERROR">
+      <checkResult>URL not reachable.
+URL: http://localhost:80/localhost_impl_cronet/!CWWeb.LaunchCW</checkResult>
+      <properties/>
+    </component>
+    <component id="Reports" relatedLineStatus="true" status="ERROR">
+      <checkResult>DB Flag: The service is not running!
+NOT OK -- 	GLADOS_PROD_CRONET
+NOT OK -- 	GLADOS_PROD_CRONET TESTREPORT
+</checkResult>
+      <properties>
+        <property name="reportsserver name" type="java.lang.String">glados_prod_CRONET</property>
+      </properties>
+    </component>
+    <component id="BIDashboard" relatedLineStatus="true" status="ERROR">
+      <checkResult>DB Flag: The service is not running!
+URL not reachable.
+URL: http://localhost:9704/analytics/saw.dll?Dashboard
+URL not reachable.
+URL: http://localhost:9704/xmlpserver</checkResult>
+      <properties/>
+    </component>
+    <component id="SSL" relatedLineStatus="true" status="INACTIVE">
+      <checkResult/>
+      <properties>
+        <property name="Wallet" type="java.lang.String">${ORACLE_INSTANCE}/config/${COMPONENT_TYPE}/${COMPONENT_NAME}/keystores/default</property>
+      </properties>
+    </component>
+    <component id="SSO" relatedLineStatus="true" status="ACTIVE">
+      <checkResult/>
+      <properties/>
+    </component>
+    <component id="application server" relatedLineStatus="true" status="OK" version="localhost ">
+      <checkResult>Ping was successful.
+No DNS entry available (nslookup failed).</checkResult>
+      <properties>
+        <property name="hostname" type="java.lang.String">localhost</property>
+        <property name="oracle11" type="java.lang.Boolean">false</property>
+        <property name="domain name" type="java.lang.String"/>
+      </properties>
+    </component>
+    <component id="IasBI" relatedLineStatus="false" status="ERROR" version="">
+      <checkResult>The local directory c:/oracle/bidisc/disc is not available. Please check the name you set in your property window.
+TNSping failed: Command not found!</checkResult>
+      <properties>
+        <property editor="Directory" name="oracle_home" type="java.io.File">c:\oracle\bidisc\disc</property>
+      </properties>
+    </component>
+    <component id="BIServer" relatedLineStatus="true" status="WARNING">
+      <checkResult>DB Flag: The service is not running!
+Check was successful, the given substring starts in line 6 at character 22 in URL result.
+URL: http://localhost:7777/discoverer/plus</checkResult>
+      <properties/>
+    </component>
+    <component id="OraDB" relatedLineStatus="true" status="OK" version="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;19.0.0.0.0&lt;br&gt;AL32UTF8&lt;br&gt;IMPL&lt;br&gt;localhost&lt;/p&gt;&lt;/html&gt;">
+      <checkResult>database version: Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+TNSping ok</checkResult>
+      <properties>
+        <property name="TNSnameRMAN" type="java.lang.String"/>
+        <property name="ServiceName" type="java.lang.String">IMPL</property>
+        <property name="TNSname" type="java.lang.String">localhost</property>
+        <property name="SID" type="java.lang.String">CDB</property>
+      </properties>
+    </component>
+    <component id="LDAP_Forms" relatedLineStatus="true" status="ACTIVE">
+      <checkResult/>
+      <properties>
+        <property name="PWD_Verschluesselung" type="java.lang.Boolean">false</property>
+      </properties>
+    </component>
+    <component id="HTTP2" relatedLineStatus="true" status="OK">
+      <checkResult>Connection ok (port 7777, time = 16 ms).
+Host Address = 127.0.0.1
+Host Name    = localhost</checkResult>
+      <properties>
+        <property name="port" type="java.lang.Integer">7777</property>
+        <property name="ssl_port" type="java.lang.Integer">7778</property>
+      </properties>
+    </component>
+    <component id="HTTP3" relatedLineStatus="true" status="ERROR">
+      <checkResult>Error: connect timed out
+port is not available.</checkResult>
+      <properties>
+        <property name="port" type="java.lang.Integer">9704</property>
+        <property name="ssl_port" type="java.lang.Integer">9705</property>
+      </properties>
+    </component>
+    <component id="HTTP1" relatedLineStatus="true" status="ERROR">
+      <checkResult>DB Flag: The service is not running!
+Error: connect timed out
+port is not available.</checkResult>
+      <properties>
+        <property name="aliasmatch" type="java.lang.String">localhost</property>
+        <property name="port" type="java.lang.Integer">80</property>
+        <property name="ssl_port" type="java.lang.Integer">443</property>
+      </properties>
+    </component>
+    <component id="EXECUTOR" relatedLineStatus="true" status="ERROR">
+      <checkResult>Error: connect timed out
+port is not available.
+DB Flag: The service is not running!</checkResult>
+      <properties>
+        <property name="port" type="java.lang.Integer">9090</property>
+        <property name="ssl_port" type="java.lang.Integer">10444</property>
+      </properties>
+    </component>
+    <component id="ConfigFiles" relatedLineStatus="true" status="OK">
+      <checkResult>The local directory c:/svndata/aktuell is available</checkResult>
+      <properties>
+        <property editor="Directory" name="cronethome" type="java.io.File">c:\svndata\aktuell</property>
+        <property name="cwoterm_config_name" type="java.lang.String">cwoterm_aktuell</property>
+        <property name="cw_config_name" type="java.lang.String">cw_aktuell</property>
+        <property name="cwupdate_config_name" type="java.lang.String">cwupdate_aktuell</property>
+      </properties>
+    </component>
+  </config>
+  <mail>
+    <mailTo>
+      <recipient>support@industrieinformatik.com</recipient>
+    </mailTo>
+    <mailSMTP>smtpServer</mailSMTP>
+    <mailPort>25</mailPort>
+    <subject>cronetwork Sysadmin Info Mail</subject>
+    <fileSelection>
+      <file checked="true" desc="Sysadmin configuration" path="D:\cronet\Sysadmin\SuperTrunk\config">saData_glados_impl_cronet.xml</file>
+      <file checked="true" desc="Sysadmin configuration" path="D:\cronet\Sysadmin\SuperTrunk\config">saData_glados_impl_CW_cronet.xml</file>
+      <file checked="true" desc="" path="D:\cwas\apache\conf">httpd.conf</file>
+      <file checked="true" desc="Configuration" path="C:\svndata\SysAdmin\SuperTrunk\config">saData_localhost_test_CW_cronet.xml</file>
+      <file checked="true" desc="Configuration" path="C:\Oracle Images\docker-images\OracleDatabase\SingleInstance\dockerfiles\19.3.0">saData_localhost_test_CW_cronet_docker.xml</file>
+    </fileSelection>
+    <authentication encrypted="true" passwd="" user="" usesmtpauth="false"/>
+  </mail>
+  <backup>
+    <recoveryWindow>14</recoveryWindow>
+    <destination path=""/>
+    <dbid/>
+    <dbVersion/>
+    <fileSelection/>
+  </backup>
+  <impExp>
+    <exportLog path="C:\temp">export.log</exportLog>
+    <exportDump path="C:\temp">export.dmp</exportDump>
+    <importLog path="C:\temp">import.log</importLog>
+    <importDump path="C:\temp">import.dmp</importDump>
+  </impExp>
+  <update>
+    <lang>GER</lang>
+    <asklang>true</asklang>
+  </update>
+  <security>
+    <pincode>grKRMCSizL2YunXJw8M1rv8ND9+qNkLgOQmxpqQwECI=</pincode>
+    <authentication connectby="DEFAULT" id="CW_REPORTS" passwd="MyoKNd12DMgOtEJ4zU7nrUyXNa7u/50wxA7KMgBxHJ0=" role="DEFAULT" user="CRONET_REP" validation="true"/>
+    <authentication connectby="DEFAULT" id="CW_LDAP" passwd="i3rMMh5Xqe4KJ4QZBFfY8NrW3ursuMwb" role="DEFAULT" user="CRONET_LDAP" validation="true"/>
+    <authentication connectby="DEFAULT" id="CW_SSO" passwd="vVTX6cCF6qiTGzNOvyVoOg==" role="DEFAULT" user="CRONET_SSO" validation="true"/>
+    <authentication connectby="SERVICE_NAME" id="ORA_SYS_USER" passwd="PCSBslmEdUk=" role="SYSDBA" user="sys" validation="true"/>
+    <authentication connectby="DEFAULT" id="CW_DISC" passwd="PXYb8kaJ1CfRsbckvUqoRQ==" role="DEFAULT" user="DISC_PROD" validation="true"/>
+    <authentication connectby="SERVICE_NAME" id="ORA_SYSTEM_USER" passwd="PCSBslmEdUk=" role="DEFAULT" user="system" validation="true"/>
+    <authentication connectby="DEFAULT" id="CW_SERVICE" passwd="" role="DEFAULT" user="CRONET_SERVICE" validation="true"/>
+    <authentication connectby="SID" id="DBSFWUSER" passwd="olYkH/lq3IM=" role="DEFAULT" user="DBSFWUSER" validation="true"/>
+    <authentication connectby="DEFAULT" id="CW_DAD" passwd="yik9CwrOjUbdqNoP7kLdMA==" role="DEFAULT" user="CRONET_DAD" validation="true"/>
+    <authentication connectby="DEFAULT" id="CW_ETL" passwd="Jjy2VIBNGkBNxLhjkbJ8FJcQQOQjbxDzZ0us4DmwMu8=" role="DEFAULT" user="CRONET_ETL" validation="true"/>
+    <authentication connectby="DEFAULT" id="CW_OTERM" passwd="uufyKoNttyd16TqtHNHtXA==" role="DEFAULT" user="CRONET_OTERM" validation="true"/>
+    <authentication connectby="DEFAULT" id="SYSDBA" passwd="PCSBslmEdUk=" role="DEFAULT" user="sysdba" validation="true"/>
+    <authentication connectby="DEFAULT" id="CW_IAS_ADMIN" passwd="fwx3QyEatKzp31/COAmG3A==" role="DEFAULT" user="IAS_ADMIN" validation="false"/>
+    <authentication connectby="SERVICE_NAME" id="CW_SCHEMA" passwd="2/uXE9V2Tdg=" role="DEFAULT" user="CRONET" validation="true"/>
+  </security>
+</saData>

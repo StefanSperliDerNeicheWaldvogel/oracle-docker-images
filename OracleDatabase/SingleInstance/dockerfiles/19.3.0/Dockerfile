@@ -119,3 +119,24 @@ HEALTHCHECK --interval=1m --start-period=5m \
 
 # Define default command to start Oracle Database. 
 CMD exec $ORACLE_BASE/$RUN_FILE
+
+#############################################
+# -------------------------------------------
+# Install Java JDK 
+# -------------------------------------------
+#############################################
+
+USER root 
+RUN yum -y update
+RUN yum -y install java-1.8.0-openjdk-devel
+RUN yum -y install wget
+RUN yum -y install perl
+
+ADD SysAdmin /opt/SysAdmin/
+
+ADD saData_localhost_test_CW_cronet_docker.xml /opt/SysAdmin/config/
+
+ADD 2021_07_12.dbt $ORACLE_HOME/assistants/dbca/templates/
+
+USER oracle
+COPY --chown=oracle:dba $DBCA_TEMPLATE_NAME $DBCA_TEMPLATE_DIR/
